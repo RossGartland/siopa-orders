@@ -1,6 +1,7 @@
 package com.siopa.orders.services;
 
 import com.siopa.orders.dto.OrderRequest;
+import com.siopa.orders.kafka.OrderProducer;
 import com.siopa.orders.models.EStatus;
 import com.siopa.orders.models.Order;
 import com.siopa.orders.models.OrderItem;
@@ -25,6 +26,9 @@ public class OrderService {
 
     @Autowired
     private OrderRepository orderRepository;
+
+    @Autowired
+    private OrderProducer orderProducer;
 
     /**
      * Retrieves all orders.
@@ -59,6 +63,7 @@ public class OrderService {
 
     /**
      * Creates a new order along with its associated order items.
+     * Sends order item quantities to Kafka for inventory management.
      *
      * @param request the order request containing customer details, store information, and items
      * @return the newly created order
@@ -94,7 +99,7 @@ public class OrderService {
 
             orderItemRepository.saveAll(orderItems);
         }
-
+        orderProducer.sendOrder(request.getOrderItems());
         return savedOrder;
     }
 
