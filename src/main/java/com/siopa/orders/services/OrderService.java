@@ -75,6 +75,7 @@ public class OrderService {
                 .customerEmail(request.getCustomerEmail())
                 .forename(request.getForename())
                 .surname(request.getSurname())
+                .phoneNumber(request.getPhoneNumber())
                 .billingAddress(request.getBillingAddress())
                 .storeID(request.getStoreID())
                 .totalItemCost(request.getTotalItemCost())
@@ -105,6 +106,7 @@ public class OrderService {
         orderProducer.sendOrder(request.getOrderItems());
         return savedOrder;
     }
+
 
     /**
      * Updates the status of an existing order.

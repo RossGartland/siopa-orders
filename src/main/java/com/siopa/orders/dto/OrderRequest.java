@@ -36,6 +36,11 @@ public class OrderRequest {
     private String surname;
 
     /**
+     * The phone number of the customer.
+     */
+    private String phoneNumber;
+
+    /**
      * The unique identifier of the store where the order is placed.
      * Expected to be in UUID format.
      */

@@ -61,6 +61,12 @@ public class Order {
     private String surname;
 
     /**
+     * The phone number of the customer.
+     */
+    @Column
+    private String phoneNumber;
+
+    /**
      * Unique identifier for the store where the order is placed.
      * This is stored as a string but expected to be in UUID format.
      */
