@@ -46,6 +46,20 @@ public class Order {
     @Column(nullable = false)
     private String customerEmail;
 
+
+    /**
+     * The forename of the customer.
+     */
+    @Column
+    private String forename;
+
+
+    /**
+     * The surname of the customer.
+     */
+    @Column
+    private String surname;
+
     /**
      * Unique identifier for the store where the order is placed.
      * This is stored as a string but expected to be in UUID format.
@@ -82,6 +96,12 @@ public class Order {
      */
     @Column
     private String deliveryAddress;
+
+    /**
+     * The billing address of the customer.
+     */
+    @Column
+    private String billingAddress;
 
     /**
      * The total cost of the order, including items, delivery, and any additional fees.

@@ -25,6 +25,17 @@ public class OrderRequest {
     private String customerEmail;
 
     /**
+     * The forename of the customer.
+     */
+    private String forename;
+
+
+    /**
+     * The surname of the customer.
+     */
+    private String surname;
+
+    /**
      * The unique identifier of the store where the order is placed.
      * Expected to be in UUID format.
      */
@@ -54,6 +65,11 @@ public class OrderRequest {
      * The address where the order should be delivered.
      */
     private String deliveryAddress;
+
+    /**
+     * The billing address of the customer.
+     */
+    private String billingAddress;
 
     /**
      * The total cost of the order, including items and any additional fees.
